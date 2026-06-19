@@ -1,0 +1,843 @@
+/** @format */
+
+@import url("https://unpkg.com/leaflet@1.9.4/dist/leaflet.css");
+
+/** @format */
+/*Leaflet CSS link*/
+
+/*.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.headerSearch {
+  display: flex;
+  width: 100%;
+  max-width: 900px;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  border: 1px solid #ebe9e9;
+  border-radius: 1.5rem;
+  padding: 1rem;
+}
+
+
+
+}
+.headerSearchItem .seperator {
+  display: inline-block;
+  width: 1px;
+  height: 30px;
+  background-color: var(--text-400);
+  margin: 0 1rem;
+}
+.textField {
+  padding: 0.7rem 1rem;
+  border-radius: 0.5rem;
+}
+.headerIcon {
+  width: 1.5rem;
+  height: 1.5rem;
+  display: inline-block;
+}
+.locationIcon {
+  color: var(--rose-500);
+}
+
+
+
+
+
+.date {
+  position: absolute;
+  top: 50px;
+  left: -5rem;
+  z-index: 1002;
+}
+
+.dateIcon {
+  color: var(--primary-700);
+}
+
+.dateDropDown {
+  margin-left: 0.5rem;
+  font-size: 0.8rem;
+}
+
+.headerSearchBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primary-600);
+  color: #fff;
+  padding: 0.6rem;
+  border-radius: 1rem;
+}
+
+/*  location list */
+/*.nearbyLocation {
+  max-width: 1280px;
+  margin: 2rem auto;
+}
+.nearbyLocation h2 {
+  margin-bottom: 1rem;
+}
+.locationList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.locationItem img {
+  width: 100%;
+  height: 20rem;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.locationItemDesc > :not(:last-child) {
+  margin-bottom: 0.2rem;
+}
+
+.locationItem .locationItemDesc .name {
+  color: var(--text-400);
+}
+.locationItem .locationItemDesc .location {
+  font-weight: 500;
+}
+.locationItem .locationItemDesc .price {
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+}
+
+.locationItem .locationItemDesc .price span {
+  color: var(--text-400);
+  font-weight: 400;
+}
+
+/* room detail */
+/*.room {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: 1rem;
+  max-width: 1280px;
+  margin: 2rem auto;
+}
+
+.roomDetail h2 {
+  margin-bottom: 0.3rem;
+  font-size: 1rem;
+}
+.roomDetail > div {
+  margin-bottom: 1rem;
+}
+.roomDetail img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 0.8rem;
+}
+
+/* map */
+
+/*.mapContainer {
+  flex: 1;
+  background-color: var(--text-100);
+  position: relative;
+}
+.mapContainer button.getLocation {
+  padding: 0.3rem 0.5rem;
+  font-size: 0.7rem;
+  font-weight: bold;
+  border-radius: 0.5rem;
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  background-color: var(--primary-600);
+  box-shadow: 0 0 10px var(--primary-600);
+  color: #fff;
+  z-index: 1000;
+}
+.map {
+  height: 100%;
+}
+
+.searchList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+
+
+
+
+.searchList .searchItem {
+  display: flex;
+  gap: 1rem;
+}
+.searchList .searchItem img {
+  width: 6rem;
+  height: 6rem;
+  object-fit: cover;
+  border-radius: 1rem;
+}
+.searchItem .searchItemDesc p {
+  margin-bottom: 0.3rem;
+}
+.searchItem .searchItemDesc .name {
+  color: var(--text-400);
+}
+.searchItem .searchItemDesc .location {
+  font-weight: 500;
+}
+.searchItem .searchItemDesc .price {
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+}
+
+.searchItem .searchItemDesc .price span {
+  color: var(--text-400);
+  font-weight: 400;
+}
+
+/* app layout */
+/*.appLayout {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  height: calc(100vh - 130px);
+  /* background-color: var(--text-100); */
+/*align-items: stretch;
+}
+
+.sidebar {
+  width: 35%;
+  overflow-y: scroll;
+  padding-right: 1rem;
+}
+
+.searchItem.current-hotel {
+  border: 3px solid var(--primary-700);
+  border-radius: 1rem;
+}
+
+@media screen and (min-width: 768px) {
+  .sidebar {
+    width: 50%;
+  }
+}
+
+/* bookmark page */
+/*.bookmarkList {
+  margin-top: 1rem;
+}
+.bookmarkItem {
+  margin-bottom: 1rem;
+  border: 1px solid var(--text-400);
+  border-radius: 1rem;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.bookmarkList .bookmarkItem.current-bookmark {
+  border: 2px solid var(--primary-600);
+  background-color: var(--text-100);
+}
+
+.currentBookmark h2 {
+  margin: 1rem 0;
+}
+
+.bookmarkItem .trash {
+  color: var(--rose-500);
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+/* form */
+
+/*.form .formControl {
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.formControl label {
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+.formControl input {
+  border: 1px solid var(--text-400);
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  width: 100%;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+}
+.btn--primary {
+  background-color: var(--primary-600);
+  color: #fff;
+}
+
+.btn--back {
+  border: 1px solid var(--text-400);
+}
+
+.formControl .flag {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+}
+
+a.active {
+  color: var(--primary-600);
+  font-weight: 700;
+}
+
+.loginContainer {
+  margin: 2rem auto;
+  max-width: 25rem;
+  border: 1px solid var(--text-300);
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+.loginContainer button {
+  width: 100%;
+}
+
+.loginContainer h2 {
+  margin-bottom: 1rem;
+}
+
+.icon.logout {
+  color: var(--rose-500);
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+
+
+/* GuestOptions.css */
+
+/*.guestOptions {
+  position: absolute;
+  top: 60px;
+  right: 0;
+  width: 250px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 10px;
+  z-index: 100;
+}
+
+.guestOptionItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 5px;
+}
+
+.optionCounter {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.optionCounterBtn {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: white;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.optionCounterBtn:hover {
+  background-color: #f0f0f0;
+}
+
+.optionValue {
+  font-weight: bold;
+  min-width: 20px;
+  text-align: center;
+}
+.closebtn{
+  border: 1px solid  var(--primary-600);
+  padding: 0.3rem;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  width: 100%;
+}
+.btncontainer{
+  margin: 0.5rem;
+}
+.btncontainer:hover {
+  background-color: #f0f0f0;
+}
+
+/*new css*/
+
+:root {
+  --primary-600: #3b82f6;
+  --primary-700: #2563eb;
+  --text-100: #f3f4f6;
+  --text-300: #d1d5db;
+  --text-400: #9ca3af;
+  --rose-500: #f43f5e;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: sans-serif;
+}
+
+/* هدر و جستجو */
+.headerSearch {
+  display: flex;
+  width: 100%;
+  max-width: 900px;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  border-radius: 1.5rem;
+  padding: 0.5rem 1rem;
+  margin: 1rem auto;
+}
+
+.headerSearchBtn {
+  background-color: var(--primary-600);
+  color: #fff;
+  padding: 0.6rem;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+}
+.headerSearchInput {
+  padding: 0.7rem 0.5rem;
+  font-size: 0.8rem;
+  border-radius: 10px;
+}
+.searchList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.searchList .searchItem {
+  display: flex;
+  gap: 1rem;
+  padding: 0.7rem;
+}
+.searchList .searchItem img {
+  width: 6rem;
+  height: 6rem;
+  object-fit: cover;
+  border-radius: 1rem;
+}
+.searchItem .searchItemDesc p {
+  margin-bottom: 0.3rem;
+}
+.searchItem .searchItemDesc .name {
+  color: var(--text-400);
+}
+.searchItem .searchItemDesc .location {
+  font-weight: 500;
+}
+.searchItem .searchItemDesc .price {
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+}
+
+.searchItem .searchItemDesc .price span {
+  color: var(--text-400);
+  font-weight: 400;
+}
+.searchItem.current-hotel {
+  border: 3px solid var(--primary-700);
+  border-radius: 1rem;
+}
+
+/* لیست مکان‌ها */
+.nearbyLocation {
+  max-width: 1280px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+.locationList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.locationItem img {
+  width: 100%;
+  height: 20rem;
+  object-fit: cover;
+  border-radius: 0.5rem;
+}
+
+/* لی‌اوت اصلی (اپلیکیشن) */
+.appLayout {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  height: calc(100vh - 130px);
+  padding: 0 1rem;
+}
+
+.sidebar {
+  width: 35%;
+  overflow-y: scroll;
+  padding-right: 1rem;
+  margin-bottom: 1rem;
+}
+.mapContainer {
+  flex: 1;
+  position: relative;
+  height: 86vh;
+}
+
+.map {
+  height: 86vh;
+  width: 100%;
+}
+
+.mapContainer button.getLocation {
+  padding: 0.3rem 0.5rem;
+  font-size: 0.7rem;
+  font-weight: bold;
+  border-radius: 0.5rem;
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  background-color: var(--primary-600);
+  box-shadow: 0 0 10px var(--primary-600);
+  color: #fff;
+  z-index: 1000;
+}
+
+/* مدیا کوئری برای موبایل و تبلت */
+@media screen and (max-width: 768px) {
+  .headerSearch {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .headerSearch .seperator {
+    display: none;
+  }
+
+  .appLayout {
+    flex-direction: column;
+    height: auto;
+  }
+  .sidebar {
+    width: 100%;
+    height: 40vh;
+  }
+  .mapContainer {
+    height: 40vh;
+  }
+
+  .locationList {
+    grid-template-columns: 1fr;
+  }
+  .room {
+    flex-direction: column;
+  }
+  .buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .loginContainer {
+    max-width: 90%;
+  }
+}
+
+.optionBox {
+  width: 100%;
+  cursor: pointer;
+  border: 1px solid #ebe9e9;
+  border-radius: 12px;
+  padding: 0.65rem 0.9rem;
+  background: #fff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 0.95rem;
+  user-select: none;
+}
+.optionBox:hover {
+  background: #f7f7f7;
+}
+.guestOptionItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 5px;
+}
+.optionCounter {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.optionCounterBtn {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: white;
+  cursor: pointer;
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+}
+
+.optionCounterBtn:hover {
+  background-color: #f0f0f0;
+}
+
+.optionValue {
+  font-weight: bold;
+  min-width: 20px;
+  text-align: center;
+}
+.closebtn {
+  border: 1px solid var(--primary-600);
+  padding: 0.3rem;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  width: 100%;
+}
+.btncontainer {
+  margin: 0.5rem;
+}
+.btncontainer:hover {
+  background-color: #f0f0f0;
+}
+/* room detail */
+.room {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: 1rem;
+  max-width: 1280px;
+  margin: 2rem auto;
+}
+
+.roomDetail h2 {
+  margin-bottom: 0.3rem;
+  font-size: 1rem;
+}
+.roomDetail > div {
+  margin-bottom: 1rem;
+}
+.roomDetail img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 0.8rem;
+}
+/* bookmark page */
+.bookmarkList {
+  margin-top: 1rem;
+}
+.bookmarkItem {
+  margin-bottom: 1rem;
+  border: 1px solid var(--text-400);
+  border-radius: 1rem;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.bookmarkList .bookmarkItem.current-bookmark {
+  border: 2px solid var(--primary-400);
+  background-color: var(--text-100);
+}
+
+.currentBookmark h2 {
+  margin: 1rem 0;
+}
+.bookmarkItem {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.bookmarkItem .trash {
+  color: var(--rose-500);
+  width: 1.1rem;
+  height: 1.1rem;
+}
+.cityname {
+  margin: 1rem;
+  color: var(--primary-600);
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+.btn--primary {
+  background-color: var(--primary-600);
+  color: #fff;
+}
+
+.btn--back {
+  border: 1px solid var(--text-400);
+  font-weight: 700;
+  color: #616263;
+}
+
+/* form */
+
+.form .formControl {
+  margin: 1rem;
+  position: relative;
+}
+
+.formControl label {
+  display: block;
+  margin: 0.5rem;
+}
+
+.formControl input {
+  border: 2px solid var(--text-300);
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  width: 100%;
+  transition: all 0.3s ease-out;
+}
+.formControl input:hover {
+  border: 2px solid var(--primary-600);
+}
+.buttons {
+  flex-direction: row;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 1rem;
+}
+.formControl .flag {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+}
+.bookmarklistheader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bookmarkbutton {
+  display: flex;
+  align-items: center;
+  color: var(--text-500);
+  padding: 0.3rem;
+  font-size: 1rem;
+}
+.bookmarkbutton:hover{
+  background: #f7f7f7;
+}
+.bookmarksvg {
+  width: 25px;
+  height: 25px;
+  color: var(--primary-700);
+}
+.loginsvg {
+  width: 25px;
+  height: 25px;
+  color: var(--primary-700);
+}
+.headerActions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1;
+  padding: 1rem;
+}
+
+.loginContainer {
+  margin: 2rem auto;
+  max-width: 25rem;
+  border: 2px solid rgb(214, 213, 213);
+  padding: 1rem;
+  border-radius: 1rem;
+  background: rgb(255, 255, 255);
+  position: relative;
+  z-index: 1;
+}
+
+.loginContainer button {
+  width: 100%;
+}
+
+.loginContainer h2 {
+  margin-bottom: 1rem;
+}
+
+.icon.logout {
+  color: var(--rose-500);
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+.userlogout {
+  padding: 0.3rem;
+  width: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.userlogout:hover {
+  background: #f7f7f7;
+}
+
+.username {
+  color: #616263;
+  font-size: 1rem;
+}
+.logout-btn {
+  color: #3b82f6;
+  font-size: larger;
+}
